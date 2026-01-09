@@ -3,8 +3,9 @@ import { useState } from 'react';
 const Bookshelf = () => {
 
   const [books, setBooks] = useState([
-    { title: 'Fourth Wing', author: 'Rebecca Yarros' },
-    { title: 'The Lion, the Witch and the Wardrobe', author: 'C.S. Lewis' },
+    { title: "Sophie's World", author: "Jostein Gaarder" },
+    { title: "Pride and Prejudice", author: "Jane Austen" },
+    { title: "The Alchemist", author: "Paulo Coelho" },
   ]);
 
   const [newBook, setNewBook] = useState(
@@ -12,7 +13,6 @@ const Bookshelf = () => {
   );
 
   const handleInputChange = (event) => {
-    // console.log("setting newBook to: ", { ...newBook, [event.target.name]: event.target.value });
     setNewBook({ ...newBook, [event.target.name]: event.target.value });
   };
 
@@ -52,7 +52,7 @@ const Bookshelf = () => {
             onChange={handleInputChange}
           />
 
-          <button type="submit" >Submit</button>
+          <button type="submit" >Add Book</button>
 
         </form>
 
