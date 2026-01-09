@@ -60,7 +60,7 @@ const Bookshelf = () => {
       <div className="bookCardsDiv">
         {books.map((book, index) => (
           <div className="bookCard" key={index}>
-            <strong>{book.title}</strong> by {book.author}
+            <h4><strong>{book.title}</strong></h4> by {book.author}
           </div>
         ))}
       </div>
