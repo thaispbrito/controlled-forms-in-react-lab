@@ -5,7 +5,7 @@ import Bookshelf from './components/Bookshelf/Bookshelf.jsx';
 const App = () => {
   return (
     <>
-      <h1>My Bookshelf</h1>
+      <h1>Thais' Bookshelf</h1>
       <Bookshelf />
     </>
   );

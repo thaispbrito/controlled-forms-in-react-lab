@@ -3,13 +3,13 @@ import { useState } from 'react';
 const Bookshelf = () => {
 
   const [books, setBooks] = useState([
-    { title: "Sophie's World", author: "Jostein Gaarder" },
-    { title: "Pride and Prejudice", author: "Jane Austen" },
-    { title: "The Alchemist", author: "Paulo Coelho" },
+    { title: "Sophie's World", author: "Jostein Gaarder", notes: "\"It's not a silly question if you can't answer it.\"" },
+    { title: "Pride and Prejudice", author: "Jane Austen", notes: "\"Till this moment I never knew myself.\"" },
+    { title: "The Alchemist", author: "Paulo Coelho", notes: "\"There is only one thing that makes a dream impossible to achieve: the fear of failure.\"" },
   ]);
 
   const [newBook, setNewBook] = useState(
-    { title: '', author: '' },
+    { title: '', author: '', notes: '' },
   );
 
   const handleInputChange = (event) => {
@@ -20,11 +20,12 @@ const Bookshelf = () => {
     // Prevent default event behavior to reload the page
     event.preventDefault();
     // Update the books array state with this new list to include the newly added book
-    setBooks([ ...books, newBook ]);
+    setBooks([...books, newBook]);
     // Reset the newBook state
     setNewBook({
       title: '',
       author: '',
+      notes: '',
     });
   };
 
@@ -51,6 +52,16 @@ const Bookshelf = () => {
             value={newBook.author}
             onChange={handleInputChange}
           />
+          <label htmlFor="notes">Notes: </label>
+          <textarea
+            id="notes"
+            name="notes"
+            value={newBook.notes}
+            onChange={handleInputChange}
+            placeholder="Write your favorite quotes or personal impressions..."
+            rows={5} 
+            cols={40} 
+          />
 
           <button type="submit" >Add Book</button>
 
@@ -60,7 +71,8 @@ const Bookshelf = () => {
       <div className="bookCardsDiv">
         {books.map((book, index) => (
           <div className="bookCard" key={index}>
-            <h4><strong>{book.title}</strong></h4> by {book.author}
+            <h4><strong>{book.title}</strong></h4> 
+            <p>by {book.author}<br /><br /><em>{book.notes}</em></p>
           </div>
         ))}
       </div>
